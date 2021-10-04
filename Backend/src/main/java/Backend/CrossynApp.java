@@ -1,19 +1,15 @@
 package Backend;
-import Backend.Classes.Trip;
 import Backend.Classes.TripEntry;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.tomcat.util.json.JSONParser;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.boot.SpringApplication;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -21,18 +17,30 @@ public class CrossynApp {
 
     public static void main(String a[]) throws IOException {
 
-        BufferedReader bufReader = new BufferedReader(new FileReader("C:\\GITWORK\\test\\src\\main\\java\\Backend\\DataStream\\dataset1.txt"));
+        BufferedReader bufReader = new BufferedReader(new FileReader("C:\\Users\\UserY\\Desktop\\School\\Course Based Semester 3\\Group\\Datasets\\set1\\set1\\dataset1.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
 
         String line = bufReader.readLine();
+        String finalLine = "";
         while (line != null) {
-            listOfLines.add(line);
+            finalLine = finalLine + line;
             line = bufReader.readLine();
 
         }
+        System.out.println(finalLine);
         bufReader.close();
 
-        System.out.println(listOfLines.stream().count());
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+
+        TypeReference<List<TripEntry>> listType = new TypeReference<>() {};
+        List<TripEntry> list = mapper.readValue(finalLine, listType);
+
+        for (TripEntry entry : list)
+        {
+            System.out.println(entry.getDateTime());
+        }
+
 
 
 //        for (String p: listOfLines) {

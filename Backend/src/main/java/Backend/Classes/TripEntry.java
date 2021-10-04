@@ -1,8 +1,10 @@
 package Backend.Classes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TripEntry {
 
@@ -10,7 +12,7 @@ public class TripEntry {
     private double lat;
     private double lon;
     private int alt;
-    private LocalDate dateTime;
+    private String dateTime;
     private int speed;
     private int speedLimit;
     private int roadType;
@@ -18,28 +20,9 @@ public class TripEntry {
 
 
 
-    public TripEntry(String vehicleId, double lat, double lon, int alt, LocalDate dateTime, int speed, int speedLimit, int roadType) {
-        this.vehicleId = vehicleId;
-        this.lat = lat;
-        this.lon = lon;
-        this.alt = alt;
-        this.dateTime = dateTime;
-        this.speed = speed;
-        this.speedLimit = speedLimit;
-        this.roadType = roadType;
-    }
+public TripEntry(){
 
-    public TripEntry(String vehicleId, double lat, double lon, int alt, LocalDate dateTime, int speed, int speedLimit, int roadType, boolean ignition) {
-        this.vehicleId = vehicleId;
-        this.lat = lat;
-        this.lon = lon;
-        this.alt = alt;
-        this.dateTime = dateTime;
-        this.speed = speed;
-        this.speedLimit = speedLimit;
-        this.roadType = roadType;
-        this.ignition = ignition;
-    }
+}
 
 
     public String getVehicleID() {
@@ -58,7 +41,7 @@ public class TripEntry {
         return alt;
     }
 
-    public LocalDate getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
@@ -94,7 +77,7 @@ public class TripEntry {
         this.alt = alt;
     }
 
-    public void setDateTime(LocalDate dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
