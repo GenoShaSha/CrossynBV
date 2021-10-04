@@ -20,12 +20,12 @@ public class CrossynApp {
         BufferedReader bufReader = new BufferedReader(new FileReader("C:\\Users\\UserY\\Desktop\\School\\Course Based Semester 3\\Group\\Datasets\\set1\\set1\\dataset1.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
 
+        String k = "";
         String line = bufReader.readLine();
         String finalLine = "";
         while (line != null) {
-            finalLine = finalLine + line;
+            finalLine = finalLine+line;
             line = bufReader.readLine();
-
         }
         System.out.println(finalLine);
         bufReader.close();
@@ -43,7 +43,9 @@ public class CrossynApp {
 
 
 
-//        for (String p: listOfLines) {
+//        ArrayList<TripEntry> pls = new ArrayList<>();
+//
+//       for (String p: listOfLines) {
 //            JSONObject plss = new JSONObject(p);
 //            pls.add(plss);
 //
@@ -53,22 +55,21 @@ public class CrossynApp {
 
 
 
-//
+
 //
 //        ArrayList<TripEntry> temp = new ArrayList<TripEntry>();
-//        BufferedReader br = new BufferedReader(new FileReader("C:\\GITWORK\\test\\src\\main\\java\\Backend\\DataStream\\dataset1.txt"));
-//
 //
 //        ObjectMapper mapper = new ObjectMapper();
 //
 //
 //        for (String b: listOfLines) {
+//            System.out.println(b);
 //            TripEntry tripEntry = mapper.readValue(b, TripEntry.class);
 //            temp.add(tripEntry);
 //            System.out.println(temp.stream().count());
 //        }
-//
-//
+
+
 
         /* Gson g = new Gson();
         for (String b : listOfLines) {

@@ -40,7 +40,7 @@ public TripEntry(){
     public int getAlt() {
         return alt;
     }
-
+//TODO: Fix this
     public String getDateTime() {
         return dateTime;
     }
