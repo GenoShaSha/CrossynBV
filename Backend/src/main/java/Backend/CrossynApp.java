@@ -17,7 +17,7 @@ public class CrossynApp {
 
     public static void main(String a[]) throws IOException {
 
-        BufferedReader bufReader = new BufferedReader(new FileReader("C:\\Users\\UserY\\Desktop\\School\\Course Based Semester 3\\Group\\Datasets\\set1\\set1\\dataset1.txt"));
+        BufferedReader bufReader = new BufferedReader(new FileReader("src\\main\\java\\Backend\\DataStream\\dataset1.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
 
         String k = "";
@@ -27,7 +27,7 @@ public class CrossynApp {
             finalLine = finalLine+line;
             line = bufReader.readLine();
         }
-        System.out.println(finalLine);
+        //System.out.println(finalLine);
         bufReader.close();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -38,7 +38,15 @@ public class CrossynApp {
 
         for (TripEntry entry : list)
         {
-            System.out.println(entry.getDateTime());
+            if(entry.getSpeedlimit() < entry.getSpeed()){
+
+                System.out.print(entry.getSpeed());
+                System.out.print(":");
+                System.out.println(entry.getSpeedlimit());
+                System.out.print(entry.getDateTime());
+                System.out.println("");
+            }
+
         }
 
 
