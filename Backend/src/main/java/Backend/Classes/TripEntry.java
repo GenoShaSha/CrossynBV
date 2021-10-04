@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 public class TripEntry {
 
@@ -12,7 +13,7 @@ public class TripEntry {
     private double lat;
     private double lon;
     private int alt;
-    private String dateTime;
+    private ZonedDateTime dateTime;
     private int speed;
     private int speedLimit;
     private int roadType;
@@ -40,8 +41,8 @@ public TripEntry(){
     public int getAlt() {
         return alt;
     }
-        //TODO: Fix this
-    public String getDateTime() {
+
+    public ZonedDateTime getDateTime() {
         return dateTime;
     }
 
@@ -77,7 +78,7 @@ public TripEntry(){
         this.alt = alt;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(ZonedDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
