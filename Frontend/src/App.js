@@ -1,21 +1,28 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div>
 
     <Router>
-      <Navbar/>
+      <NavBar/>
       <Switch>
         <Route path='/Login' exact component={Login} />
       </Switch>
     </Router>
 
+<div className="HomePage">
+<h1>Welcome</h1>
+
+</div>
     </div>
+   
   );
 }
 
