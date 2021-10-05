@@ -4,12 +4,9 @@ import java.util.ArrayList;
 
 public interface IManager {
 
-public boolean AddObject(Object a);
+boolean AddObject(Object a);
 
-public boolean RemoveObject(Object a);
+boolean RemoveObject(Object a);
 
-public ArrayList<Object> GetAllObjects();
-
-
-
+ArrayList<Object> GetAllObjects();
 }

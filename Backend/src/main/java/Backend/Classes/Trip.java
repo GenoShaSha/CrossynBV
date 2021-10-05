@@ -1,9 +1,8 @@
 package Backend.Classes;
 
-import Backend.Interfaces.IManager;
+import Backend.Interfaces.*;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Trip implements IManager {
