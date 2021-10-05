@@ -3,11 +3,12 @@
     color: white !important;
 }
 
-.mr-auto{
-    position: relative;
-    margin-left: auto;
-    margin-right: 5vh;
-    text-align: right;
+.me-auto{
+ 
+    position:absolute;
+  top: 20px;
+  right:0;
+
 }
 
 img {

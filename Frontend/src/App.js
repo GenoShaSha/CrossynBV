@@ -12,9 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const handleLogout = () => {
-    localStorage.clear();
-  };
+
 
 
   return (
@@ -26,10 +24,12 @@ function App() {
       <Route path='/' exact component={Home} />
       <Route path='/Login' exact component={Login} />
       <Route path='/Trips' exact component={Trips}/>
+
       </Switch>
+
     </Router>
 
-    <button onClick={handleLogout}>logout</button>
+   
 
     </div>
     

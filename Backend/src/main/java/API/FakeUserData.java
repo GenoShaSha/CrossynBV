@@ -10,7 +10,7 @@ public class FakeUserData {
 
     public FakeUserData(){
 
-        User user1 = new User("sss","s");
+        User user1 = new User("user1","123");
         users.add(user1);
 
     }
