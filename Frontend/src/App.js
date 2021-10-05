@@ -1,5 +1,5 @@
 import './App.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navbar';
 import Login from './pages/Login';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';

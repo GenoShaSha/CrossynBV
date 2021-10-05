@@ -1,6 +1,6 @@
 package API;
-import org.springframework.web.bind.annotation.*;
 import Backend.Classes.User;
+import org.springframework.web.bind.annotation.*;
 import ch.qos.logback.core.status.Status;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
+@RequestMapping("/user")
+
 public class UserController {
 
         ArrayList<User> users = new ArrayList<User>();
