@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Get from "../api/Get";
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import '../styles/Login.css';

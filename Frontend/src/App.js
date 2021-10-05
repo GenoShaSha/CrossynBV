@@ -1,3 +1,4 @@
+import SecuredRoute from './components/SecureRoute';
 import './App.css';
 import NavBar from './components/Navbar';
 import Login from './pages/Login';
@@ -9,8 +10,6 @@ import { Redirect } from 'react-router';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
-import LoginHide from './components/LoginHide';
-import SecuredRoute from './components/SecureRoute';
 
 function App() {
   const handleLogout = () => {
@@ -26,7 +25,7 @@ function App() {
       <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/Login' exact component={Login} />
-      <SecuredRoute path='/Trips' exact component={Trips}/>
+      <Route path='/Trips' exact component={Trips}/>
       </Switch>
     </Router>
 

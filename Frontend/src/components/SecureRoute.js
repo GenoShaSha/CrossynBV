@@ -1,3 +1,4 @@
+import React from "react";
 import { Route } from "react-router"
 import { Redirect } from "react-router";
 
@@ -12,4 +13,4 @@ import { Redirect } from "react-router";
     )} />
   )
 
-  export default SecuredRoute;
+  export default SecuredRoute
