@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Get from "../api/Get";
+import axios from 'axios';
+import { Redirect } from 'react-router';
+import '../styles/Login.css';
 
 
 class Login extends Component{
@@ -7,7 +10,8 @@ class Login extends Component{
         super(props)
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errorMessage:''
         }
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.changePasswordHandler = this.changePasswordHandler.bind(this);
@@ -16,11 +20,29 @@ class Login extends Component{
 
 
 
-    // checkUser = (hndl) => {
-    //     hndl.preventDefault();
-    //     let member = { memberID: this.state.memberID, name: this.state.name, email: this.state.email, phoneNumb: this.state.phoneNumb, address: this.state.address, password: this.state.password };
-    //     postFormData(member)
-    // }
+    checkUser = (hndl) => {
+        hndl.preventDefault();
+        // const emails = this.state.email;
+        // const passwordd = this.state.password
+        // const user = { emails,passwordd };
+        // vars = JSON.stringify(user);
+        axios.post("http://localhost:8080/user/login", {
+            username:this.state.email,
+            password:this.state.password
+        })
+            .then(response => { 
+                console.log(response);
+                const token = "logged in";
+                localStorage.setItem("token", token);
+                this.props.history.push("/");
+
+            
+            },
+            (error) => {
+                console.log(error);
+                this.setState({errorMessage: error.message});
+              });
+    }
     
 
     changeEmailHandler = (event) => {
@@ -49,12 +71,15 @@ class Login extends Component{
                                         <input placeholder="Password" name="password" className="form-control"
                                             value={this.state.password} onChange={this.changePasswordHandler} />
                                     </div>
-                                    <button className="btn btn-success" onClick={this.checkUser}>SignIn</button>
+                                  
+                                    <br></br><button className="btn btn-success" onClick={this.checkUser}>SignIn</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                { this.state.errorMessage &&
+                   <p className="error"> { "Username or password incorrect" } </p> }
             </div>
         )
     }

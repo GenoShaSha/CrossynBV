@@ -3,6 +3,7 @@ import '../styles/NavBar.css';
 import {  Link } from "react-router-dom";
 import {Container ,Navbar, Nav} from 'react-bootstrap'
 import logo from "../images/logo.png";
+import SecuredRoute from './SecureRoute';
 
 
 const NavBar= () =>{
@@ -10,11 +11,10 @@ const NavBar= () =>{
     <div className="Navigation">
     <Navbar bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Navbar.Brand href="/"> <img src={logo} className="img-logo" alt="Logo"/></Navbar.Brand>
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      <Nav.Link href="/login">Log in</Nav.Link>
+      <Nav.Link href="/Trips">Trips</Nav.Link>
     </Nav>
     </Container>
   </Navbar>
