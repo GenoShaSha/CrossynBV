@@ -1,4 +1,5 @@
 package Backend;
+import Backend.Accepter.TripEntryAccepter;
 import Backend.Classes.TripEntry;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,7 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -18,9 +21,8 @@ public class CrossynApp {
     public static void main(String a[]) throws IOException {
 
         BufferedReader bufReader = new BufferedReader(new FileReader("src\\main\\java\\Backend\\DataStream\\dataset1.txt"));
-        ArrayList<String> listOfLines = new ArrayList<>();
 
-        String k = "";
+
         String line = bufReader.readLine();
         String finalLine = "";
         while (line != null) {
@@ -30,64 +32,51 @@ public class CrossynApp {
         //System.out.println(finalLine);
         bufReader.close();
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        TripEntryAccepter TE = new TripEntryAccepter();
+        List<TripEntry> list = TE.TurnJSONStringToObject(finalLine);
 
-        TypeReference<List<TripEntry>> listType = new TypeReference<>() {};
-        List<TripEntry> list = mapper.readValue(finalLine, listType);
+        List<TripEntry> BrokenSpeeds = new LinkedList<>();
 
-        for (TripEntry entry : list)
+        for (TripEntry entry : list) {
+            if (entry.getSpeed() > entry.getSpeedlimit())
+            {
+                BrokenSpeeds.add(entry);
+            }
+        }
+        System.out.println("Speed Limit broken: " + BrokenSpeeds.size());
+        System.out.println("Do you want to see the entries Where speed was broken? (Y/N)");
+        if(Prompt())
         {
-            if(entry.getSpeedlimit() < entry.getSpeed()){
+            for (TripEntry Entry : BrokenSpeeds)
+            {
+                System.out.println(Entry);
+            }
+        }
+        }
 
-                System.out.print(entry.getSpeed());
-                System.out.print(":");
-                System.out.println(entry.getSpeedlimit());
-                System.out.print(entry.getDateTime());
-                System.out.println("");
+        public static boolean Prompt() throws IOException {
+            // Enter data using BufferReader
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+
+            // Reading data using readLine
+            String input = reader.readLine();
+            if(input.equals("Y")||input.equals("y"))
+            {
+                return true;
+            }
+            else if (input.equals("N")||input.equals("n"))
+            {
+                return false;
+            }
+            else
+            {
+                System.out.println("Please Try again");
+                return Prompt();
             }
 
         }
 
 
 
-//        ArrayList<TripEntry> pls = new ArrayList<>();
-//
-//       for (String p: listOfLines) {
-//            JSONObject plss = new JSONObject(p);
-//            pls.add(plss);
-//
-//        }
-
-
-
-
-
-
-//
-//        ArrayList<TripEntry> temp = new ArrayList<TripEntry>();
-//
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//
-//        for (String b: listOfLines) {
-//            System.out.println(b);
-//            TripEntry tripEntry = mapper.readValue(b, TripEntry.class);
-//            temp.add(tripEntry);
-//            System.out.println(temp.stream().count());
-//        }
-
-
-
-        /* Gson g = new Gson();
-        for (String b : listOfLines) {
-
-            TripEntry temp2 = g.fromJson(b,TripEntry.class);
-            temp.add(temp2);
-        }
-
-        System.out.println(temp.stream().count()); */
-
-
-    }
 }

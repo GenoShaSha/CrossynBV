@@ -20,10 +20,22 @@ public class TripEntry {
     private boolean ignition;
 
 
-
-public TripEntry(){
+//for the algorithm
+public TripEntry(String vehicleId, double lat, double lon, int alt, ZonedDateTime dateTime, int speed, int speedLimit, int roadType, boolean ignition)
+{
+    this.vehicleId = vehicleId;
+    this.lat = lat;
+    this.lon = lon;
+    this.alt = alt;
+    this.dateTime = dateTime;
+    this.speed = speed;
+    this.speedLimit = speedLimit;
+    this.roadType = roadType;
+    this.ignition = ignition;
 
 }
+
+public TripEntry() {} //this is for the deserializer
 
 
     public String getVehicleID() {
@@ -96,5 +108,9 @@ public TripEntry(){
 
     public void setIgnition(boolean ignition) {
         this.ignition = ignition;
+    }
+
+    public String toString(){
+        return "Vehicle: " + getVehicleID().toString() + " at Latitude: " +getLat()+", Longitude: "+getLon()+" and Altitude: "+getAlt()+". Driver on RoadType: "+ getRoadType()+ " Driving: "+ getSpeed() +"Km/H, " + (getSpeed()>getSpeedlimit() ? "" : "Not ") + "Breaking the Speedlimit (Speedlimit: " + getSpeedlimit() + "Km/H) on " + getDateTime();
     }
 }

@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="babc8bef-6cb0-4ffe-95f2-e608172673ee" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/Backend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Frontend/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Frontend/.idea/Frontend.iml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/Accepter/TripEntryAccepter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/Algorithm/Algorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/Algorithm/AlgorithmHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/Containers/TripContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/Containers/TripEntryContainer.java" afterDir="false" />
+>>>>>>> Start-Threading-experimentation
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
@@ -27,6 +36,21 @@
       <change beforePath="$PROJECT_DIR$/../Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/pages/Login.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Backend/Acceptor/TripEntryAccepter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Backend/Classes/Trip.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Backend/Classes/Trip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Backend/Classes/TripEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Backend/Classes/TripEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Backend/CrossynApp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Backend/CrossynApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Backend/CrossynApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/Acceptor/TripEntryAccepter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/Algorithm/TripEntryAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/Algorithm/TripEntryAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/Classes/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/Classes/Trip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/Classes/TripEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/Classes/TripEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/CrossynApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/CrossynApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/Interfaces/IManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/Interfaces/IManager.java" afterDir="false" />
+>>>>>>> Start-Threading-experimentation
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,8 +176,12 @@
       <workItem from="1633333154387" duration="609000" />
       <workItem from="1633334212432" duration="148000" />
       <workItem from="1633334432044" duration="1209000" />
+<<<<<<< HEAD
       <workItem from="1633374348215" duration="1458000" />
       <workItem from="1633381689951" duration="2109000" />
+=======
+      <workItem from="1633439518662" duration="2361000" />
+>>>>>>> Start-Threading-experimentation
     </task>
     <servers />
   </component>
