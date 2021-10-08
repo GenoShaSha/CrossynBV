@@ -11,12 +11,15 @@
 
 }
 
-img {
-    border-radius: 5%;
-    margin-inline: 0px;
+a.nav-link {
+    margin-inline: 20px;
 }
+
 
 img.img-logo {
     width: 75px;
     margin-left: 10px;
+    border-radius: 50%;
 }
+
+

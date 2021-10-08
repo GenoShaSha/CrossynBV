@@ -71,7 +71,7 @@ class Login extends Component{
                                             value={this.state.password} onChange={this.changePasswordHandler} />
                                     </div>
                                   
-                                    <br></br><button className="btn btn-success" onClick={this.checkUser}>SignIn</button>
+                                    <br></br><button className="btn btn-success" onClick={this.checkUser}>Sign In</button>
                                 </form>
                             </div>
                         </div>

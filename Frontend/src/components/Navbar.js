@@ -6,6 +6,7 @@ import logo from "../images/logo.png";
 import SecuredRoute from './SecureRoute';
 
 
+
 const NavBar= () =>{
   return (
     <div className="Navigation">
@@ -13,7 +14,7 @@ const NavBar= () =>{
     <Container>
     <Navbar.Brand href="/"> <img src={logo} className="img-logo" alt="Logo"/></Navbar.Brand>
      <Nav className="me-auto" >
-      <Nav.Link href="/login">Log in</Nav.Link>
+     <Nav.Link href="/login">Log in</Nav.Link>
       <Nav.Link href="/Trips">Trips</Nav.Link>
     </Nav>
     </Container>

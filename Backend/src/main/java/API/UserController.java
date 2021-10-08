@@ -46,10 +46,4 @@ private static final FakeUserData data = new FakeUserData();
             return false;
         }
 
-        @Request0Mapping("/getUsers")
-        public List<User> GetAllUsers{
-        return data.GetAllUsers();
-
-        }
-
 }
