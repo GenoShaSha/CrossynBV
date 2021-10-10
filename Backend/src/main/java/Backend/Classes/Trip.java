@@ -3,19 +3,20 @@ package Backend.Classes;
 import Backend.Interfaces.*;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
-public class Trip implements IManager {
+public class Trip{
 
     private String vehicleId;
-    private LocalDate startTime;
-    private LocalDate endTime;
+    private ZonedDateTime startTime;
+    private ZonedDateTime endTime;
     private boolean currentlyOngoing;
 
     private ArrayList<TripEntry> Entries;
 
 
-    public Trip(String vehicleId, LocalDate startTime, LocalDate endTime, boolean currentlyOngoing) {
+    public Trip(String vehicleId, ZonedDateTime startTime, ZonedDateTime endTime, boolean currentlyOngoing) {
         this.vehicleId = vehicleId;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -27,11 +28,11 @@ public class Trip implements IManager {
         return vehicleId;
     }
 
-    public LocalDate getStartTime() {
+    public ZonedDateTime getStartTime() {
         return startTime;
     }
 
-    public LocalDate getEndTime() {
+    public ZonedDateTime getEndTime() {
         return endTime;
     }
 
@@ -39,7 +40,7 @@ public class Trip implements IManager {
         return currentlyOngoing;
     }
 
-    public void setEndTime(LocalDate endTime) {
+    public void setEndTime(ZonedDateTime endTime) {
         this.endTime = endTime;
     }
 
@@ -47,8 +48,8 @@ public class Trip implements IManager {
         this.currentlyOngoing = currentlyOngoing;
     }
 
-    @Override
-    public boolean AddObject(Object a) {
+
+    public boolean AddTripEntry(Object a) {
         if (a != null){
             Entries.add((TripEntry) a);
             return true;
@@ -59,8 +60,7 @@ public class Trip implements IManager {
 
     }
 
-    @Override
-    public boolean RemoveObject(Object a) {
+    public boolean RemoveTripEntry(Object a) {
         if (a != null){
             Entries.remove((TripEntry) a);
             return true;
@@ -70,13 +70,16 @@ public class Trip implements IManager {
         }
     }
 
-    @Override
-    public ArrayList<Object> GetAllObjects() {
+    public ArrayList<Object> GetAllTripEntries() {
         ArrayList<Object> replacement = new ArrayList<Object>();
 
         for (TripEntry a: Entries) {
             replacement.add(a);
         }
         return replacement;
+    }
+
+    public String toString(){
+        return "Trip with vehicle id: "+ this.getVehicleId() + "Started at : " + this.getStartTime() + " and ended at : " + this.getEndTime() + " the status is:" + this.isCurrentlyOngoing();
     }
 }

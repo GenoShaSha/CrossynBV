@@ -12,10 +12,10 @@ public class TripContainer {
     private List<Trip>  trips=new ArrayList<Trip>();
 
     //Functions (Crud)
-    public Trip CreateTrip(String vehicleId, LocalDate startTime, LocalDate endTime,  boolean currentlyOngoing)
-    {
-         return new Trip(vehicleId, startTime, endTime, currentlyOngoing);
-    }
+//    public Trip CreateTrip(String vehicleId, LocalDate startTime, LocalDate endTime,  boolean currentlyOngoing)
+//    {
+//         return new Trip(vehicleId, startTime, endTime, currentlyOngoing);
+//    }
     //TODO: make this an easy create, but also add it too Trip class itself
     /*public Trip CreateTrip(String vehicleId, LocalDate startTime){
         return new Trip(vehicleId, startTime, );

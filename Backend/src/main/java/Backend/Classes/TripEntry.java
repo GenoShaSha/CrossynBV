@@ -111,6 +111,6 @@ public TripEntry() {} //this is for the deserializer
     }
 
     public String toString(){
-        return "Vehicle: " + getVehicleID().toString() + " at Latitude: " +getLat()+", Longitude: "+getLon()+" and Altitude: "+getAlt()+". Driver on RoadType: "+ getRoadType()+ " Driving: "+ getSpeed() +"Km/H, " + (getSpeed()>getSpeedlimit() ? "" : "Not ") + "Breaking the Speedlimit (Speedlimit: " + getSpeedlimit() + "Km/H) on " + getDateTime();
+        return "Vehicle: " + getVehicleID().toString() + " at Latitude: " +getLat()+", Longitude: "+getLon()+" and Altitude: "+getAlt()+". Driver on RoadType: "+ getRoadType()+ " Driving: "+ getSpeed() +"Km/H, " + (getSpeed()>getSpeedlimit() ? "" : "Not ") + "Breaking the Speedlimit (Speedlimit: " + getSpeedlimit() + "Km/H) on " + getDateTime() + "ignition: "  + this.isIgnition();
     }
 }
