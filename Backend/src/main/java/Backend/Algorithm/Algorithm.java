@@ -20,14 +20,18 @@ public class Algorithm
 
     public List<Trip> MakeTrips (List<TripEntry> entries) {
 
-        
+
         TripEntry OldEntry = null;
         int count = 0;
 
 
         for (TripEntry entry : entries) {
+
+            //If there are no trips make one
             if (trips.stream().count() > 0) {
                 for (Trip currenttrips : trips) {
+
+                    // Check all ongoing trips if this trip entry belongs to them
                     if (currenttrips.isCurrentlyOngoing() == true){
                         if (currenttrips.getVehicleId().equals(entry.getVehicleID())) {
                             currenttrips.AddTripEntry(entry);
@@ -35,8 +39,10 @@ public class Algorithm
                     }
                 }
 
+                //Check to see if ALL Trips have currently stopped
                 boolean allEnded = trips.stream().allMatch(x -> x.isCurrentlyOngoing() == false);
 
+                //If all trips have stopped but there is a new trip entry make a new trip
                 if (allEnded == true){
                     Trip newTrip = new Trip(entry.getVehicleID(), entry.getDateTime(), null, true);
                     trips.add(newTrip);
@@ -49,6 +55,9 @@ public class Algorithm
                 }
                 else
                 {
+
+                    //The trick with OldEntry.time.getMinutes() - NewEntry.Time.getMinutes() does not work because 10:59 - 11:00 = 59 minutes difference
+                    // Neither does NewEntry.Time.getMinutes() - OldEntry.time.getMinutes() because 15:02 - 14:37 = -37 minutes difference
 
                     Duration between = Duration.between(OldEntry.getDateTime().toLocalTime(),entry.getDateTime().toLocalTime());
                     if( between.toMinutes() >= 5){
