@@ -80,6 +80,12 @@ public class Trip{
     }
 
     public String toString(){
-        return "Trip with vehicle id: "+ this.getVehicleId() + "Started at : " + this.getStartTime() + " and ended at : " + this.getEndTime() + " the status is:" + this.isCurrentlyOngoing();
+        if(this.currentlyOngoing == true){
+            return "Trip with vehicle id: "+ this.getVehicleId() + " Started at : " + this.getStartTime() + " and ended at : " + this.getEndTime() + " the status is: Ongoing";
+        }
+        else {
+            return "Trip with vehicle id: "+ this.getVehicleId() + " Started at : " + this.getStartTime() + " and ended at : " + this.getEndTime() + " the status is: Stopped";
+
+        }
     }
 }

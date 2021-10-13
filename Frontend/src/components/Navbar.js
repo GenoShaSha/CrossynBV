@@ -9,8 +9,8 @@ import SecuredRoute from './SecureRoute';
 
 class NavBar extends React.Component  {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         isAuthenticated: ''
     };

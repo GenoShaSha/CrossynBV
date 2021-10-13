@@ -24,53 +24,21 @@ public class CrossynApp {
 
     public static void main(String a[]) throws IOException {
 
-        Algorithm test1 = new Algorithm();
+            while(true){
+                Algorithm test1 = new Algorithm();
+                TripEntryAccepter TE = new TripEntryAccepter();
 
-        BufferedReader bufReader = null;
-        Scanner input = new Scanner(System.in);
+                String finalLine = TE.BigLine();
 
-        while (1 > 0) {
+                List<TripEntry> list = TE.TurnJSONStringToObject(finalLine);
+                List<Trip> Test = new ArrayList<Trip>();
+                Test = test1.MakeTrips(list);
 
-            System.out.println("Please select 1/2/3 to choose a dataset");
-            int set = input.nextInt();
+                for (Trip test2 : Test) {
+                    System.out.println(test2);
 
-            switch (set) {
-                case 1:
-                    bufReader = new BufferedReader(new FileReader("src\\main\\java\\Backend\\DataStream\\dataset1.txt"));
-                    break;
-                case 2:
-                    bufReader = new BufferedReader(new FileReader("src\\main\\java\\Backend\\DataStream\\dataset2.txt"));
-                    break;
-                case 3:
-                    bufReader = new BufferedReader(new FileReader("src\\main\\java\\Backend\\DataStream\\dataset3.txt"));
-                    break;
+                }
             }
-
-
-            String line = bufReader.readLine();
-            String finalLine = "";
-            while (line != null) {
-                finalLine = finalLine + line;
-                line = bufReader.readLine();
-            }
-            //System.out.println(finalLine);
-            bufReader.close();
-
-            TripEntryAccepter TE = new TripEntryAccepter();
-            List<TripEntry> list = TE.TurnJSONStringToObject(finalLine);
-
-
-
-
-            List<Trip> Test = new ArrayList<Trip>();
-
-            Test = test1.MakeTrips(list);
-
-            for (Trip test2 : Test) {
-                System.out.println(test2);
-
-            }
-
 
         }
 
@@ -122,7 +90,7 @@ public class CrossynApp {
 //    }
 //}
     }
-}
+
 
 
 

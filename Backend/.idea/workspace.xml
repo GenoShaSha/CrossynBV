@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="babc8bef-6cb0-4ffe-95f2-e608172673ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Navbar.js" afterDir="false" />
     </list>
@@ -60,7 +59,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CrossynApp">
+  <component name="RunManager" selected="Spring Boot.APIApp">
     <configuration name="APIApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Backend.main" />
       <extension name="coverage">
@@ -89,8 +88,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CrossynApp" />
         <item itemvalue="Spring Boot.APIApp" />
+        <item itemvalue="Spring Boot.CrossynApp" />
       </list>
     </recent_temporary>
   </component>
