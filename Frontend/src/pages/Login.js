@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import '../styles/Login.css';
+import NavBar from '../components/Navbar';
 
 
 class Login extends Component{
