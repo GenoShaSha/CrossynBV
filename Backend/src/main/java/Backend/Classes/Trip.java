@@ -70,6 +70,8 @@ public class Trip{
         }
     }
 
+    public TripEntry GetLatestTripEntry() {return Entries.get(Entries.size() -1); }
+
     public ArrayList<Object> GetAllTripEntries() {
         ArrayList<Object> replacement = new ArrayList<Object>();
 
@@ -79,6 +81,7 @@ public class Trip{
         return replacement;
     }
 
+    @Override
     public String toString(){
         if(this.currentlyOngoing == true){
             return "Trip with vehicle id: "+ this.getVehicleId() + " Started at : " + this.getStartTime() + " and ended at : " + this.getEndTime() + " the status is: Ongoing";

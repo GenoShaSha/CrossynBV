@@ -1,6 +1,7 @@
 package Backend;
 import Backend.Accepter.TripEntryAccepter;
 import Backend.Algorithm.Algorithm;
+import Backend.Algorithm.TripEntryAlgorithm;
 import Backend.Classes.Trip;
 import Backend.Classes.TripEntry;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -8,36 +9,68 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.swing.*;
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 
 @SpringBootApplication
 public class CrossynApp {
 
 
-    public static void main(String a[]) throws IOException {
-
+    public static void main(String a[]) throws IOException
+    {
+        BlockingQueue<TripEntry> queue = new ArrayBlockingQueue(10000);
+        TripEntryAlgorithm Algorithm = new TripEntryAlgorithm(queue);
+        new Thread(Algorithm).start();
+        System.out.println("Debug purpose; You want to use dialog popup to select dataset? (write true or false)");
+        Scanner input = new Scanner(System.in);
+        boolean set = input.nextBoolean();
             while(true){
-                Algorithm test1 = new Algorithm();
+
+                //Algorithm test1 = new Algorithm();
                 TripEntryAccepter TE = new TripEntryAccepter();
 
-                String finalLine = TE.BigLine();
+                //String finalLine = TE.BigLine();
 
-                List<TripEntry> list = TE.TurnJSONStringToObject(finalLine);
-                List<Trip> Test = new ArrayList<Trip>();
-                Test = test1.MakeTrips(list);
+                List<TripEntry> list;
+                if(set)
+                {
+                    list = TE.TurnJSONStringToObject(TE.BigLineDialog());
+                }
+                else
+                {
+                    list = TE.TurnJSONStringToObject(TE.BigLine());
+                }
 
-                for (Trip test2 : Test) {
-                    System.out.println(test2);
+
+
+
+
+                for(TripEntry Test : list)
+                {
+                    try
+                    {
+                        queue.put(Test);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        ex.printStackTrace();
+                    }
 
                 }
+                //List<Trip> Test = new ArrayList<Trip>();
+
+                //Test = test1.MakeTrips(list);
+                //for (Trip test2 : Test) {
+                //    System.out.println(test2);
+                //}
             }
 
         }

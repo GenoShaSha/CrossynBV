@@ -1,21 +1,38 @@
 package Backend.Containers;
 
 import Backend.Classes.*;
+import com.sun.jdi.ArrayReference;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class TripContainer {
     //Items
-    private List<Trip>  trips=new ArrayList<Trip>();
+    private List<Trip>  trips;
+
+    public TripContainer()
+    {
+        this.trips = new ArrayList<>();
+    }
+
 
     //Functions (Crud)
-//    public Trip CreateTrip(String vehicleId, LocalDate startTime, LocalDate endTime,  boolean currentlyOngoing)
-//    {
-//         return new Trip(vehicleId, startTime, endTime, currentlyOngoing);
-//    }
+
+    public boolean AddTrip(Trip t)
+    {
+        if(trips.add(t))
+        {
+            return true;
+        }
+        return false;
+    }
+    public Trip CreateTrip(String vehicleId, ZonedDateTime startTime, ZonedDateTime endTime, boolean currentlyOngoing)
+    {
+         return new Trip(vehicleId, startTime, endTime, currentlyOngoing);
+    }
     //TODO: make this an easy create, but also add it too Trip class itself
     /*public Trip CreateTrip(String vehicleId, LocalDate startTime){
         return new Trip(vehicleId, startTime, );
@@ -63,11 +80,11 @@ public class TripContainer {
         }
     }
 
-    public boolean VehicleOnTrip(int vehicleID)
+    public boolean VehicleOnTrip(String vehicleID)
     {
         for(Trip trippu: trips )
         {
-            if(trippu.getVehicleId().equals(vehicleID))
+            if(trippu.getVehicleId().equals(vehicleID) && trippu.isCurrentlyOngoing())
             {
                 return true;
             }
@@ -75,11 +92,11 @@ public class TripContainer {
         return false;
     }
 
-    public Trip GetOngoingTripFromVehicleID(int vehicleID)
+    public Trip GetOngoingTripFromVehicleID(String vehicleID)
     {
         for(Trip trippu: trips )
         {
-            if(trippu.getVehicleId().equals(vehicleID))
+            if(trippu.getVehicleId().equals(vehicleID) && trippu.isCurrentlyOngoing())
             {
                 return trippu;
             }
@@ -87,7 +104,7 @@ public class TripContainer {
         return null;
     }
 
-    public List<Trip> GetPastTripsFromVehicleID(int vehicleID)
+    public List<Trip> GetPastTripsFromVehicleID(String vehicleID)
     {
         List<Trip> pastTrips=new LinkedList<Trip>();
 
@@ -106,6 +123,19 @@ public class TripContainer {
         {
             return null;
         }
+    }
+
+    public boolean AddToTripWithVehicleID(String vehicleID, TripEntry tripEntry)
+    {
+        for(Trip trippu: trips )
+        {
+            if(trippu.getVehicleId().equals(vehicleID) && trippu.isCurrentlyOngoing())
+            {
+                trippu.AddTripEntry(tripEntry);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

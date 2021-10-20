@@ -2,16 +2,55 @@ package Backend.Algorithm;
 
 import Backend.Classes.Trip;
 import Backend.Classes.TripEntry;
+import Backend.Containers.TripContainer;
 
+import javax.swing.*;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.concurrent.BlockingQueue;
 
-public class TripEntryAlgorithm {
+public class TripEntryAlgorithm implements Runnable {
 
-    private ArrayList<Trip> trips;
+    BlockingQueue<TripEntry> queue;
 
-    public TripEntryAlgorithm() {
-        trips = new ArrayList<Trip>();
+    private TripContainer t;
+    private AlgorithmHandler h;
+
+    public TripEntryAlgorithm(BlockingQueue<TripEntry> queue)
+    {
+        this.queue = queue;
+        t = new TripContainer();
+        h = new AlgorithmHandler(t);
+
     }
+
+    @Override
+    public void run()
+    {
+
+        while(true)
+        {
+            TripEntry entry;
+
+            try
+            {
+                 entry = queue.take();
+                 if(h.Add2Trip(entry))
+                 {
+                     System.out.println("Trip Finished: " + t.GetPastTripsFromVehicleID(entry.getVehicleID()).get(t.GetPastTripsFromVehicleID(entry.getVehicleID()).size() - 1));
+                 }
+            }
+            catch(InterruptedException ex)
+            {
+                System.out.println(ex);
+                ex.printStackTrace();
+            }
+
+
+
+        }
+    }
+
 
     /*
     TripEntry OldEntry = null;

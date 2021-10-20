@@ -60,22 +60,22 @@ public class Algorithm
                     // Neither does NewEntry.Time.getMinutes() - OldEntry.time.getMinutes() because 15:02 - 14:37 = -37 minutes difference
 
                     Duration between = Duration.between(OldEntry.getDateTime().toLocalTime(),entry.getDateTime().toLocalTime());
-                    if( between.toMinutes() >= 5){
+                    if( between.toMinutes() >= 5)
+                    {
 
-                        for (Trip currenttrips : trips) {
-                            if (currenttrips.isCurrentlyOngoing() == true){
-                                if (currenttrips.getVehicleId().equals(entry.getVehicleID())){
+                        for (Trip currenttrips : trips)
+                        {
+                            if (currenttrips.isCurrentlyOngoing() == true)
+                            {
+                                if (currenttrips.getVehicleId().equals(entry.getVehicleID()))
+                                {
                                     currenttrips.setEndTime(OldEntry.getDateTime());
                                     currenttrips.setCurrentlyOngoing(false);
                                 }
-
                            }
-
                         }
-
-                        }
-
                     }
+                }
                     OldEntry = entry;
 
             }

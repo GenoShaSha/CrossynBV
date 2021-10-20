@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,6 +24,9 @@ public class TripEntryAccepter {
     public String BigLine() throws IOException {
 
         BufferedReader bufReader = null;
+
+
+
         Scanner input = new Scanner(System.in);
 
             System.out.println("Please select 1/2/3 to choose a dataset");
@@ -49,6 +53,27 @@ public class TripEntryAccepter {
             }
             bufReader.close();
             return finalLine;
+
+    }
+
+    public String BigLineDialog() throws IOException {
+        BufferedReader bufReader = null;
+
+        JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            // set the label to the path of the selected directory
+            bufReader = new BufferedReader(new FileReader(fc.getSelectedFile().getAbsolutePath()));
+        }
+
+        String line = bufReader.readLine();
+        String finalLine = "";
+        while (line != null) {
+            finalLine = finalLine + line;
+            line = bufReader.readLine();
+        }
+        bufReader.close();
+        return finalLine;
 
     }
 
