@@ -2,17 +2,26 @@ package Backend.Classes;
 
 import Backend.Interfaces.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
+
+@Entity
+@Table(name ="trip")
 public class Trip{
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String vehicleId;
     private ZonedDateTime startTime;
     private ZonedDateTime endTime;
     private boolean currentlyOngoing;
 
+    @OneToMany
     private ArrayList<TripEntry> Entries;
 
 
@@ -22,6 +31,16 @@ public class Trip{
         this.endTime = endTime;
         this.currentlyOngoing = currentlyOngoing;
         Entries = new ArrayList<TripEntry>();
+    }
+
+    public Trip(){
+    }
+
+
+    public void setId(Long id){this.id = id;}
+
+    public Long getID() {
+        return id;
     }
 
     public String getVehicleId() {
