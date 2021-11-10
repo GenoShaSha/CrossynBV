@@ -20,7 +20,7 @@ function App() {
       <Switch>
       <Route path='/' exact component={Home} />
       {localStorage.getItem("token") === "logged in" ? <Route path='/Login' exact component={Home} /> : <Route path='/Login' exact component={Login} />}
-      {localStorage.getItem("token") === "logged in" ? <Route path='/Trips' exact component={Trips}/> : <Route path='/Trips' exact component={Home}/>}
+      <Route path='/Trips' exact component={Trips}/>
       </Switch>
 
     </Router>
