@@ -33,7 +33,6 @@ private static final FakeUserData data = new FakeUserData();
                 }
             }
             return new ResponseEntity(HttpStatus.NOT_FOUND);
-
         }
 
         @PostMapping("/logout")

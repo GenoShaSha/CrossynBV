@@ -1,15 +1,31 @@
 package Backend.Classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
+        private Long id;
         private String username;
         private String password;
+        private boolean admin;
+
+        private List<Trip> ConnectedVehicles = new ArrayList<>();
         public User() {
         }
         public User(String username,String password) {
             this.username = username;
             this.password = password;
         }
-        public String getUsername() {
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
             return username;
         }
         public void setUsername(String username) {
@@ -21,5 +37,10 @@ public class User {
         public void setPassword(String password) {
             this.password = password;
         }
-
+        public boolean isAdmin() {
+            return admin;
+        }
+        public void setAdmin(boolean admin) {
+            this.admin = admin;
+        }
 }
