@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,11 +15,21 @@ import java.util.List;
 
 
 public class TripController {
-    private static final FakeUserData data = new FakeUserData();
 
-    @PostMapping("/Trips")
-    public List<Trip> getAllTrips(@RequestBody Long id){
-        return null;
+    private FakeTripData data = new FakeTripData();
+
+    @GetMapping
+    public ResponseEntity<List<Trip>> getAllTrips(@RequestBody Long id){
+        List<Trip> test = null;
+
+        test = data.getS();
+
+        if(test != null){
+            return ResponseEntity.ok().body(test);
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

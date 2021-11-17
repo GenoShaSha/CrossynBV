@@ -20,6 +20,8 @@ public class Trip{
     private ZonedDateTime startTime;
     private ZonedDateTime endTime;
     private boolean currentlyOngoing;
+    @OneToOne
+    private Vehicle vehicle;
 
     @OneToMany
     private ArrayList<TripEntry> Entries;
@@ -27,6 +29,15 @@ public class Trip{
 
     public Trip(String vehicleId, ZonedDateTime startTime, ZonedDateTime endTime, boolean currentlyOngoing) {
         this.vehicleId = vehicleId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.currentlyOngoing = currentlyOngoing;
+        Entries = new ArrayList<TripEntry>();
+    }
+
+
+    public Trip(Vehicle vehicle, ZonedDateTime startTime, ZonedDateTime endTime, boolean currentlyOngoing) {
+        this.vehicle = vehicle;
         this.startTime = startTime;
         this.endTime = endTime;
         this.currentlyOngoing = currentlyOngoing;
